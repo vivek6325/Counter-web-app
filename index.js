@@ -1,33 +1,32 @@
-let counterElement = document.getElementById("counterValue");
+document.addEventListener("DOMContentLoaded", function () {
+  let counterElement = document.getElementById("counterValue");
 
-function onIncrement() {
+  window.onIncrement = function () {
     let previousCounterValue = counterElement.textContent;
     let updatedCounterValue = parseInt(previousCounterValue) + 1;
-    if (updatedCounterValue > 0) {
-        counterElement.style.color = "green";
-    } else if (updatedCounterValue < 0) {
-        counterElement.style.color = "red";
-    } else {
-        counterElement.style.color = "black";
-    }
+    counterElement.style.color =
+      updatedCounterValue > 0
+        ? "green"
+        : updatedCounterValue < 0
+        ? "red"
+        : "black";
     counterElement.textContent = updatedCounterValue;
-}
+  };
 
-function onDecrement() {
+  window.onDecrement = function () {
     let previousCounterValue = counterElement.textContent;
     let updatedCounterValue = parseInt(previousCounterValue) - 1;
-    if (updatedCounterValue > 0) {
-        counterElement.style.color = "green";
-    } else if (updatedCounterValue < 0) {
-        counterElement.style.color = "red";
-    } else {
-        counterElement.style.color = "black";
-    }
+    counterElement.style.color =
+      updatedCounterValue > 0
+        ? "green"
+        : updatedCounterValue < 0
+        ? "red"
+        : "black";
     counterElement.textContent = updatedCounterValue;
-}
+  };
 
-function onReset() {
-    let counterValue = 0;
-    counterElement.textContent = counterValue;
+  window.onReset = function () {
+    counterElement.textContent = 0;
     counterElement.style.color = "black";
-}
+  };
+});
